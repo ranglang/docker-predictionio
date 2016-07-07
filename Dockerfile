@@ -65,7 +65,6 @@ RUN chmod +x entrypoint.sh && chmod +x deploy_engine.sh
 
 RUN pwd
 RUN ls
-o
 # Expose HTTP ports (event server and recommendation server)
 EXPOSE 7070 8000
 
