@@ -14,7 +14,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Install other dependencies
 RUN apt-get update && \
-    apt-get install -y curl libgfortran3 python-pip 
+    apt-get install -y curl libgfortran3 python-pip
 
 # Install prediction.io itself
 RUN curl -O https://d8k1yxp8elc6b.cloudfront.net/PredictionIO-${PIO_VERSION}.tar.gz && \
@@ -58,8 +58,14 @@ RUN ${PIO_HOME}/sbt/sbt -batch
 ADD files/deploy_engine.sh .
 ADD files/entrypoint.sh .
 
+#RUN chmod 777 deploy_engine.sh
+#RUN chmod 777 entrypoint.sh
+
 RUN chmod +x entrypoint.sh && chmod +x deploy_engine.sh
 
+RUN pwd
+RUN ls
+o
 # Expose HTTP ports (event server and recommendation server)
 EXPOSE 7070 8000
 
