@@ -54,12 +54,14 @@ RUN curl -O http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hado
 # Triggers fetching the complete sbt environment
 RUN ${PIO_HOME}/sbt/sbt -batch
 
+WORKDIR /
 # Add scripts
 ADD files/deploy_engine.sh .
 ADD files/entrypoint.sh .
 
 #RUN chmod 777 deploy_engine.sh
 #RUN chmod 777 entrypoint.sh
+
 
 RUN chmod +x entrypoint.sh && chmod +x deploy_engine.sh
 
