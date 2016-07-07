@@ -69,4 +69,4 @@ RUN ls
 EXPOSE 7070 8000
 
 # Entrypoint definition -> Run services
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
